@@ -1,4 +1,5 @@
-// import css from './ButtonBox.module.css';
+import css from './ButtonBox.module.css';
+
 import Button from '../../components/Button//Button';
 
 const ButtonBox = () => {
@@ -10,9 +11,9 @@ const ButtonBox = () => {
   ];
 
   return (
-    <div>
+    <div className={css.buttonBox}>
       {buttons.map((row, index) => (
-        <div key={index}>
+        <div key={index} className={css.row}>
           {row.map(label => (
             <Button key={label} label={label} />
           ))}
