@@ -2,7 +2,7 @@ import css from './ButtonBox.module.css';
 
 import Button from '../../components/Button//Button';
 
-const ButtonBox = () => {
+const ButtonBox = ({ onButtonClick }) => {
   const buttons = [
     ['1', '2', '3', '+'],
     ['4', '5', '6', '-'],
@@ -12,12 +12,8 @@ const ButtonBox = () => {
 
   return (
     <div className={css.buttonBox}>
-      {buttons.map((row, index) => (
-        <div key={index} className={css.row}>
-          {row.map(label => (
-            <Button key={label} label={label} />
-          ))}
-        </div>
+      {buttons.flat().map(label => (
+        <Button key={label} label={label} onClick={onButtonClick} />
       ))}
     </div>
   );
